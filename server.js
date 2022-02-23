@@ -1,27 +1,20 @@
 const express = require("express");
+const path = require("path");
+const fs = require("fs");
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("./public/"));
 
-app.listen(PORT, () => console.log(`running on http://localhost:${PORT}`));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/index.html"));
+});
 
 app.get("/notes", (req, res) => {
-  res.status(200).send({
-    key: "value",
-    key2: "value2",
-  });
+  res.sendFile(path.join(__dirname, "../public/notes.html"));
 });
 
-app.post("/notes/:id", (req, res) => {
-  const { id } = req.params;
-  const { logo } = req.body;
-
-  if (!logo) {
-    res.status(418).send({ message: "we need a logo" });
-  }
-
-  res.send({
-    notes: `Tshirt with your ${logo} and ID of ${id}`,
-  });
-});
+app.listen(PORT, () => console.log(`Listening on ${PORT}`));
