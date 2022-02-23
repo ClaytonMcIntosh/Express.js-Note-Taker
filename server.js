@@ -29,9 +29,7 @@ app.post("/api/notes", (req, res) => {
     id: noteId,
     title: noteReq.title,
     text: noteReq.text,
-    c,
   };
-
   notes.push(newNote);
 
   fs.writeFileSync("./db/db.json", JSON.stringify(notes));
