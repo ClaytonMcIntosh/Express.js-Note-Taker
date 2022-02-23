@@ -5,8 +5,7 @@ const fs = require("fs");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-//only needed for posting
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
@@ -29,7 +28,8 @@ app.post("/api/notes", (req, res) => {
   const newNote = {
     id: noteId,
     title: noteReq.title,
-    text: noteReq.text,c
+    text: noteReq.text,
+    c,
   };
 
   notes.push(newNote);
