@@ -36,4 +36,4 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 
 The following screenshot is of the deployed application on Heroku. You will notice one note is saved on the left.
 
-![ScreenShot](./img/screenshot.png)
+![ScreenShot](./img/screenshot3.png)
