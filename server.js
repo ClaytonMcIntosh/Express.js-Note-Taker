@@ -24,12 +24,15 @@ app.get("/*", (req, res) => {
 app.post("/api/notes", (req, res) => {
   let noteReq = req.body;
   let notes = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
-  let noteId = notes.length;
+  let idNumber = 1;
+  idNumber = idNumber + 1;
+  // let noteId = notes.length;
   const newNote = {
-    id: noteId,
+    id: idNumber,
     title: noteReq.title,
     text: noteReq.text,
   };
+
   notes.push(newNote);
 
   fs.writeFileSync("./db/db.json", JSON.stringify(notes));
