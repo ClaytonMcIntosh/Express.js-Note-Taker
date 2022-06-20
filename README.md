@@ -1,4 +1,4 @@
-# Homework-11-Express.js-Note-Taker
+Express.js Note-Taker
 
 This week's homework is mostly about linking the back end to the front end using routes and middleware in Express.js. The application then needed to be deployed using Heroku.
 
